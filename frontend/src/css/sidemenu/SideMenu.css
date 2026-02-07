@@ -3,12 +3,13 @@
   display: flex;
   flex-direction: column;
   width: 240px;
-  height: 100vh;
+  height: calc(100vh - 90px); /* ✅ Subtract footer height to prevent overlap */
   background: linear-gradient(180deg, #1a0d2e 0%, #0d0416 100%);
-  padding: 24px 16px;
+  padding: 24px 16px 24px 16px;
   gap: 24px;
   border-right: 1px solid rgba(139, 92, 246, 0.1);
   position: relative;
+  overflow-y: auto; /* ✅ Allow scrolling if content is too tall */
 }
 
 /* Brand Section */
@@ -45,7 +46,7 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  flex: 1; /* ✅ Takes up available space, pushing footer to bottom */
+  flex: 1; /* Takes up available space, pushing footer to bottom */
 }
 
 /* Menu Buttons */
@@ -87,12 +88,13 @@
   color: #8b5cf6;
 }
 
-/* ✅ Footer/Profile Section - ALWAYS VISIBLE AT BOTTOM */
+/* Footer/Profile Section - ALWAYS VISIBLE AT BOTTOM */
 .sidemenu-footer {
-  margin-top: auto; /* ✅ This pushes it to the bottom */
+  margin-top: auto; /* Pushes it to the bottom */
   padding-top: 16px;
   border-top: 1px solid rgba(139, 92, 246, 0.1);
-  flex-shrink: 0; /* ✅ Prevents shrinking */
+  flex-shrink: 0; /* Prevents shrinking */
+  padding-bottom: 16px; /* ✅ Extra padding to ensure it's visible */
 }
 
 .profile-btn {
@@ -138,7 +140,7 @@
   flex-direction: column;
   gap: 2px;
   flex: 1;
-  min-width: 0; /* ✅ Allows text truncation */
+  min-width: 0; /* Allows text truncation */
 }
 
 .profile-name {
@@ -187,6 +189,7 @@
     z-index: 100;
     transform: translateX(-100%);
     transition: transform 0.3s ease;
+    height: calc(100vh - 90px); /* ✅ Keep footer spacing on mobile too */
   }
 
   .sidemenu-root.open {

@@ -3,17 +3,15 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 
 import Input from "../common/input.jsx";
-import { setUser, setError, clearError } from "../../redux/slices/authslice";
+import { setUser, setError, clearError } from "../../redux/slices/authslice.js";
 
-import "../../css/auth/EditProfile.css"; // ✅ FIX: Uncommented CSS import
+import "../../css/auth/EditProfile.css"; 
 
 const EditProfile = ({ onClose }) => {
   const dispatch = useDispatch();
   const { user, token } = useSelector((state) => state.auth);
 
-  /* ===============================
-     Local state
-  =============================== */
+  
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [previewImage, setPreviewImage] = useState("");

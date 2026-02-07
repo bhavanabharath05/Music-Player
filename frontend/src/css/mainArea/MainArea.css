@@ -1,18 +1,53 @@
+/* Main Area Root */
 .mainarea-root {
-  @apply flex flex-col h-full min-h-0;
-}
-
-/* ✅ FIX: Top section with proper layout for auth buttons */
-.mainarea-top {
+  flex: 1;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 20px;
-  margin-bottom: 20px;
-  flex-shrink: 0;
+  flex-direction: column;
+  height: calc(100vh - 90px); /* Account for footer */
+  overflow: hidden;
+  position: relative; /* ✅ Important for absolute positioning of Auth */
 }
 
-/* This is the ONLY scrolling container */
+/* Top Section - Contains Auth and Playlists/Search */
+.mainarea-top {
+  position: relative;
+  padding: 20px 30px;
+  border-bottom: 1px solid rgba(138, 43, 226, 0.1);
+  min-height: 80px;
+}
+
+/* Scrollable Content Area */
 .mainarea-scroll {
-  @apply flex-1 min-h-0 overflow-hidden;
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 30px;
+}
+
+/* Scrollbar Styling */
+.mainarea-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.mainarea-scroll::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.mainarea-scroll::-webkit-scrollbar-thumb {
+  background: rgba(138, 43, 226, 0.3);
+  border-radius: 10px;
+}
+
+.mainarea-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(138, 43, 226, 0.5);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .mainarea-top {
+    padding: 15px 20px;
+  }
+
+  .mainarea-scroll {
+    padding: 15px 20px;
+  }
 }
