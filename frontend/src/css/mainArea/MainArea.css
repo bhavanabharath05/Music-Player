@@ -1,0 +1,18 @@
+.mainarea-root {
+  @apply flex flex-col h-full min-h-0;
+}
+
+/* ✅ FIX: Top section with proper layout for auth buttons */
+.mainarea-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+
+/* This is the ONLY scrolling container */
+.mainarea-scroll {
+  @apply flex-1 min-h-0 overflow-hidden;
+}
